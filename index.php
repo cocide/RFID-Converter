@@ -135,6 +135,13 @@ if(!@include_once ('parsedown/Parsedown.php')) {
 			$("select").on('change', function() {
 				convert_card();
 			});
+			$('#rfid').keydown(function (e) {
+				if (e.keyCode == 13) {
+					e.preventDefault();
+					convert_card();
+					return false;
+				}
+			})
 		});
 		function convert_card() {
 			$.ajax({
@@ -196,11 +203,11 @@ if(!@include_once ('parsedown/Parsedown.php')) {
 					</div>
 				</form>
 				<table id="results" class="table">
-					<tr><td class="text-right">ID Number:</td><td class="data"><span class="data" id="id"><?php echo format_output('0', 10, 10);?></span></td></tr>
+					<tr><td class="text-right">ID Number:</td><td class="data"><span class="data" id="id"><?php echo format_output($id, 10, 10);?></span></td></tr>
 					<tr><td class="text-right">HID Format:</td><td class="data"><?php echo 'Facility:&nbsp;<span class="data" id="facility">'.$facility.'</span>, PIN:&nbsp;<span class="data" id="pin">'.$pin.'</span>';?></td></tr>
-					<tr><td class="text-right">Hexadecimal:</td><td class="data"><span class="data" id="hex"><?php echo str_repeat('&nbsp', 1).format_output('0', 2, 11);?></span></td></tr>
-					<tr><td class="text-right">Decimal:</td><td class="data"><span class="data" id="dec"><?php echo format_output('0', 4, 12);?></span></td></tr>
-					<tr><td class="text-right">Binary:</td><td class="data"><span class="data" id="bin"><?php echo str_repeat('&nbsp', 4).format_output('0', 8, 44);?></span></td></tr>
+					<tr><td class="text-right">Hexadecimal:</td><td class="data"><span class="data" id="hex"><?php echo format_output($hex, 2, 10, ($known['bits']/4), ($known['padding']/4));?></span></td></tr>
+					<tr><td class="text-right">Decimal:</td><td class="data"><span class="data" id="dec"><?php echo ($method == 'id' || $method == 'hid'?'Not Available':format_output($dec, 4, 12));?></span></td></tr>
+					<tr><td class="text-right">Binary:</td><td class="data"><span class="data" id="bin"><?php echo format_output($bin, 8, 40, $known['bits'], $known['padding']);?></span></td></tr>
 				</table>
 				<div id="error-results" class="alert alert-danger d-none" role="alert">
 					Invalid Data Entered.
@@ -210,7 +217,7 @@ if(!@include_once ('parsedown/Parsedown.php')) {
 				</div>
 			</div>
 			<div class="card-footer text-muted text-center">
-				version 2018.03.12 <a href="https://github.com/cocide/RFID-Converter" target="_blank"><i class="fas fa-code-branch"></i></a>
+				version 2018.03.21 <a href="https://github.com/cocide/RFID-Converter" target="_blank"><i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</div>
