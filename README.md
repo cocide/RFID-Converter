@@ -18,4 +18,3 @@ This format is rarely used, but it may still be useful to have. Using this forma
 
 #### Binary
 This format is typically never seen, however this is extremely useful for determining key values with unusual security panels. If you can't figure out how your system addresses cards, take a known working card and enter the HEX value and use the binary data to compare the binary value of the scanned data. Using this format will fully populate all output types. Example format: `1111101111101100101010101110100010001111`
-t
