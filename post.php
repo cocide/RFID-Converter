@@ -18,7 +18,7 @@ elseif ($_POST['method'] == 'id') {
 	$bin = base_convert(substr($_POST['rfid'], -8), 10, 2);
 	$known['bits'] = strlen(base_convert(substr($_POST['rfid'], 0, 1).str_repeat('9', (strlen(preg_replace("/[^0-9]/", "", $_POST['rfid'])) - 1) ), 10, 2)) - 1;
 	if (preg_replace("/[^0-9]/", "", $_POST['rfid']) > 16777215) {
-		$error = false;
+		$error = true;
 	}
 } elseif ($_POST['method'] == 'hid') {
 	$parts = explode(',', preg_replace("/[^0-9]+/", ",", preg_replace("/^[^0-9]+/", "", $_POST['rfid'])));
