@@ -30,7 +30,7 @@ elseif ($_POST['method'] == 'id') {
 }
 
 
-if (strlen($bin) > 44) {
+if (strlen($bin) > 40) {
 	$error = true;
 } 
 
