@@ -11,10 +11,11 @@ This is the long number typically printed on the card.  Other output formats may
 This is the facility/pin numbers typically printed on the card. When using these numbers to do conversions you will need to separate the two numbers with a non-numeric character such as a space, slash, or comma. Other output formats may only be partially available when entering data with this format. `170,59535`, `170 59535`, and `170/59535` are all valid formats.
 
 #### Hexadecimal
-This is the Hex version of the card number. Typically USB readers will return this format. This may also be printed on the card. Using this format will fully populate all output types. Example format: `FBECAAE88FF`
+This is the Hex version of the card number. Typically USB readers will return this format. This may also be printed on the card. Using this format will fully populate all output types. Example format: `FBECAAE88F`
 
 #### Decimal
-This format is rarely used, but it may still be useful to have. Using this format will fully populate all output types. Example Format: `312118638847`
+This format is rarely used, but it may still be useful to have. Using this format will fully populate all output types. Example Format: `1082007414927`
 
 #### Binary
-This format is typically never seen, however this is extremely useful for determining key values with unusual security panels. If you can't figure out how your system addresses cards, take a known working card and enter the HEX value and use the binary data to compare the binary value of the scanned data. Using this format will fully populate all output types. Example format: `11111011111011001010101011101000100011111111`
+This format is typically never seen, however this is extremely useful for determining key values with unusual security panels. If you can't figure out how your system addresses cards, take a known working card and enter the HEX value and use the binary data to compare the binary value of the scanned data. Using this format will fully populate all output types. Example format: `1111101111101100101010101110100010001111`
+t
